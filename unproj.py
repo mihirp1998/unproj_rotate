@@ -69,13 +69,13 @@ def unproject(inputs, resize = False):
     return inputs
 
 def run(ricson,fov):
-    voxel.RADIUS = 12.0
-    voxel.SCENE_SIZE =6.0
+    voxel.RADIUS = 13.0
+    voxel.SCENE_SIZE =8.0
     voxel.NEAR = voxel.RADIUS - voxel.SCENE_SIZE
     voxel.FAR = voxel.RADIUS + voxel.SCENE_SIZE
     voxel.fov =fov
     voxel.W = 64.0
-    depth = np.array(imageio.imread("depth/CLEVR_new_000025/CLEVR_new_000025_0_20.exr", format='EXR-FI'))[:,:,0]
+    depth = np.array(imageio.imread("CLEVR_64_36_MORE_OBJ_FINAL_SMALL/depth/train/CLEVR_new_000003/CLEVR_new_000003_0_20.exr", format='EXR-FI'))[:,:,0]
     depth = depth * (100 - 0) + 0
     depth.astype(np.float32)
     val = np.expand_dims(np.expand_dims(depth,axis=-1),0)
